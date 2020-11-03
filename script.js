@@ -30,7 +30,7 @@ function initMap() {
 const countMoraineLake = 0
 
 const parkingLakeLouise = {
-    name: "Lake Louise Parking We did it!",
+    name: "Lake Louise Parking",
     stalls: 200,
     hours: {
         monday: "8:00 - 22:00",
