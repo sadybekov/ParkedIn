@@ -1,0 +1,11 @@
+#map {
+    height: 400px;
+    width: 100%;
+    background-color: grey;
+}
+
+#parkingInfo {
+    height: 400px;
+    width: 100%;
+    background-color: lightblue;
+}
