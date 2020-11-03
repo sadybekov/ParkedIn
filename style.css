@@ -14,3 +14,9 @@
     margin-top: 50px;
 }
 
+.counter {
+    width: 100%;
+    height: 100%;
+    border: solid black;
+    text-align: center;
+}
