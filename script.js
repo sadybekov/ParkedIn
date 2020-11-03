@@ -27,7 +27,7 @@ function initMap() {
     });
 }
 
-const countMoraineLake
+const countMoraineLake = 0
 
 const parkingLakeLouise = {
     name: "Lake Louise Parking We did it!",
