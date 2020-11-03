@@ -46,7 +46,8 @@ const parkingLakeLouise = {
 const parkingMoraineLake = {
     name: "Moraine Lake Parking",
     stallsTotal: 100,
-    stallsAvailable: 0,
+    stallsTaken: countMoraineLake, //TODO create count that is parking specific 
+    stallsAvailable: this.stallsTotal-this.stallsTaken,
     hours: {
         monday: "8:00 - 22:00",
         tuesday: "8:00 - 22:00",
