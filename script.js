@@ -4,7 +4,7 @@
 function initMap() {
     //Coordinates
     const lakeLouise = { lat: 51.425, lng: -116.1773 };
-    const lakeLouiseParking = { lat: 51.417123, lng: -116.215194 };
+    const lakeLouiseParking = { lat: 51.4149585, lng: -116.2134862};
     const moraineLakeParking = { lat: 51.3294, lng: -116.1817 };
     const overflowParking = { lat: 51.3867448, lng: -116.1302803 };
     const map = new google.maps.Map(document.getElementById("map"), {
