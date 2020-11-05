@@ -58,6 +58,7 @@ body {
     font-size: 1em;
 }
 
-.buttonName:link {
-    text-decoration: greenyellow;
+.buttonCounter {
+    font-size: 2em;
+    line-height: 0.8;
 }

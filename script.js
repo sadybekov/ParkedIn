@@ -112,3 +112,4 @@ buttonLakeLoiseParking[0].addEventListener("click", function() {
     count ++;
     console.log(count)
 })
+
