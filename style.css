@@ -21,7 +21,9 @@ body {
     background-color: lightblue;
 }
 
-
+.topMargin {
+    margin-top: 18px;
+}
 
 .counter {
     width: 100%;
