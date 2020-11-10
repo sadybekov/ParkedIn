@@ -1,37 +1,32 @@
 /**
  * Initiates a map with parking coordinates and zooms at Lake Louise Parking
  */
+
+//Coordinates
+const lakeLouiseTownCoordinates = { lat: 51.425, lng: -116.1773 };
+const lakeLouiseParkingCoordinates = { lat: 51.4149585, lng: -116.2134862};
+const moraineLakeParkingCoordinates = { lat: 51.3294, lng: -116.1817 };
+const overflowParkingCoordinates = { lat: 51.3867448, lng: -116.1302803 };
+
 function initMap() {
-    //Coordinates
-    const lakeLouise = { lat: 51.425, lng: -116.1773 };
-    const lakeLouiseParking = { lat: 51.4149585, lng: -116.2134862};
-    const moraineLakeParking = { lat: 51.3294, lng: -116.1817 };
-    const overflowParking = { lat: 51.3867448, lng: -116.1302803 };
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 10.5,
-        center: lakeLouiseParking,
+        center: lakeLouiseParkingCoordinates,
     });
-    // const marker = new google.maps.Marker({
-    //     position: lakeLouise,
-    //     map: map,
-    // });
-    
     //Markers
     const markerMoraineLakeParking = new google.maps.Marker({
-        position: moraineLakeParking,
+        position: moraineLakeParkingCoordinates,
         map: map,
     }); 
     const markerLakeLouiseParking = new google.maps.Marker({
-        position: lakeLouiseParking,
+        position: lakeLouiseParkingCoordinates,
         map: map,
     });
     const markerOverflowParking = new google.maps.Marker({
-        position: overflowParking,
+        position: overflowParkingCoordinates,
         map: map,
     });
 }
-
-const countMoraineLake = 0
 
 /**
  * Parking objects
@@ -52,7 +47,7 @@ const parkingLakeLouise = {
     },
     responsible: "007",
 }
-
+let countMoraineLake = 0;
 //Moraine Lake
 const parkingMoraineLake = {
     name: "Moraine Lake",
@@ -105,10 +100,11 @@ document.querySelector("#ParkingThreeName").innerHTML = parkings[2].name
 /**
  * Toggle zoom at parking zone
  */
-var buttonLakeLoiseParking = document.querySelectorAll("#headingOne")
-console.log(buttonLakeLoiseParking[0])
-var count = 0
-buttonLakeLoiseParking[0].addEventListener("click", function() {
+const buttonLakeLoiseParking = document.querySelector("#headingOne")
+// console.log(buttonLakeLoiseParking[0])
+
+let count = 0
+buttonLakeLoiseParking.addEventListener("click", function() {
     count ++;
     console.log(count)
 })
