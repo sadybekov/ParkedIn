@@ -33,15 +33,15 @@ function initMap() {
     
     buttonLakeLoiseParking.addEventListener("click", function() {
         map.panTo(lakeLouiseParkingCoordinates);
-        map.setZoom(12);
+        map.setZoom(12.5);
     })
     buttonMoraineLakeParking.addEventListener("click", function() {
         map.panTo(moraineLakeParkingCoordinates);
-        map.setZoom(12);
+        map.setZoom(12.5);
     })
     buttonOverflowParking.addEventListener("click", function() {
         map.panTo(overflowParkingCoordinates);
-        map.setZoom(12);
+        map.setZoom(12.5);
     })
 
 }
