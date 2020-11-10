@@ -26,6 +26,24 @@ function initMap() {
         position: overflowParkingCoordinates,
         map: map,
     });
+
+    const buttonLakeLoiseParking = document.querySelector("#headingOne")
+    const buttonMoraineLakeParking = document.querySelector("#headingTwo")
+    const buttonOverflowParking = document.querySelector("#headingThree")
+    
+    buttonLakeLoiseParking.addEventListener("click", function() {
+        map.panTo(lakeLouiseParkingCoordinates);
+        map.setZoom(12);
+    })
+    buttonMoraineLakeParking.addEventListener("click", function() {
+        map.panTo(moraineLakeParkingCoordinates);
+        map.setZoom(12);
+    })
+    buttonOverflowParking.addEventListener("click", function() {
+        map.panTo(overflowParkingCoordinates);
+        map.setZoom(12);
+    })
+
 }
 
 /**
@@ -100,12 +118,17 @@ document.querySelector("#ParkingThreeName").innerHTML = parkings[2].name
 /**
  * Toggle zoom at parking zone
  */
-const buttonLakeLoiseParking = document.querySelector("#headingOne")
-// console.log(buttonLakeLoiseParking[0])
+// const buttonLakeLoiseParking = document.querySelector("#headingOne")
+// // console.log(buttonLakeLoiseParking[0])
 
-let count = 0
-buttonLakeLoiseParking.addEventListener("click", function() {
-    count ++;
-    console.log(count)
-})
+// let count = 0
+// buttonLakeLoiseParking.addEventListener("click", function() {
+//     count ++;
+//     console.log(count)
+//     console.log(typeof(map))
+//     map = {
+//         zoom: 15,
+//         center: moraineLakeParkingCoordinates,
+//     }
+// })
 
