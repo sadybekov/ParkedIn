@@ -140,8 +140,8 @@ document.querySelector("#ParkingThreeName").innerHTML = parkings[2].name
 
 
 
-const lakeLouisePlus = document.getElementsByClassName("buttonCounterPlus");
-const lakeLouiseMinus = document.getElementsByClassName("buttonCounterMinus");
+const Plus = document.getElementsByClassName("buttonCounterPlus");
+const Minus = document.getElementsByClassName("buttonCounterMinus");
 let availableLots = document.getElementsByClassName("counter");
 
 
@@ -162,24 +162,24 @@ function subtractStalls(obj) {
 
 
 
-lakeLouisePlus[0].onclick = () => { addStalls(parkingLakeLouise); 
+Plus[0].onclick = () => { addStalls(parkingLakeLouise); 
     availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
 }
-lakeLouiseMinus[0].onclick = () => { subtractStalls(parkingLakeLouise);
+Minus[0].onclick = () => { subtractStalls(parkingLakeLouise);
     availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
 }
 
-lakeLouisePlus[1].onclick = () => { addStalls(parkingMoraineLake); 
+Plus[1].onclick = () => { addStalls(parkingMoraineLake); 
     availableLots[1].innerHTML = parkingMoraineLake.stallsAvailable;
 }
-lakeLouiseMinus[1].onclick = () => { subtractStalls(parkingMoraineLake);
+Minus[1].onclick = () => { subtractStalls(parkingMoraineLake);
     availableLots[1].innerHTML = parkingMoraineLake.stallsAvailable;
 }
 
-lakeLouisePlus[2].onclick = () => { addStalls(parkingOverflow); 
+Plus[2].onclick = () => { addStalls(parkingOverflow); 
     availableLots[2].innerHTML = parkingOverflow.stallsAvailable;
 }
-lakeLouiseMinus[2].onclick = () => { subtractStalls(parkingLakeLouise);
+Minus[2].onclick = () => { subtractStalls(parkingOverflow);
     availableLots[2].innerHTML = parkingOverflow.stallsAvailable;
 }
 // function updateCounter (obj) {
