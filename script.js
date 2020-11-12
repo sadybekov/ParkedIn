@@ -165,7 +165,7 @@ lakeLouisePlus[0].onclick = () => { addStalls(parkingLakeLouise);
     availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
 }
 
-lakeLouisePlus[0].onclick = () => { addStalls(parkingLakeLouise);
+lakeLouiseMinus[0].onclick = () => { subtractStalls(parkingLakeLouise);
     console.log(parkingLakeLouise.stallsAvailable); 
     availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
 }
