@@ -54,9 +54,9 @@ function initMap() {
 const parkingLakeLouise = {
     name: "Lake Louise",
 
-    capacity: 200,
-    stallsTaken: 190,
-    stallsAvailable: 10,
+    capacity: 10,
+    stallsTaken: 5,
+    stallsAvailable: 5,
 
     hours: {
         monday: "8:00 - 22:00",
@@ -150,6 +150,9 @@ function addStalls(obj) {
         obj.stallsTaken ++;
     }
     obj.stallsAvailable = obj.capacity - obj.stallsTaken;
+    if (obj.stallsAvailable === 0) {
+        obj.stallsAvailable = "FULL";
+    }
 }
 
 function subtractStalls(obj) {
