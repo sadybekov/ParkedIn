@@ -33,15 +33,15 @@ function initMap() {
     
     buttonLakeLoiseParking.addEventListener("click", function() {
         map.panTo(lakeLouiseParkingCoordinates);
-        map.setZoom(12.5);
+        map.setZoom(16);
     })
     buttonMoraineLakeParking.addEventListener("click", function() {
         map.panTo(moraineLakeParkingCoordinates);
-        map.setZoom(12.5);
+        map.setZoom(16);
     })
     buttonOverflowParking.addEventListener("click", function() {
         map.panTo(overflowParkingCoordinates);
-        map.setZoom(12.5);
+        map.setZoom(15);
     })
 
 }
@@ -132,3 +132,24 @@ document.querySelector("#ParkingThreeName").innerHTML = parkings[2].name
 //     }
 // })
 
+
+
+const lakeLouisePlus = document.getElementsByClassName("buttonCounterPlus");
+const lakeLouiseMinus = document.getElementsByClassName("buttonCounterMinus");
+let availableLots = document.getElementsByClassName("counter");
+
+let count = availableLots[0].textContent;
+
+lakeLouisePlus[0].onclick = function () {
+    if (count < 100) {
+    count ++
+    }
+    availableLots[0].innerHTML = count;
+};
+
+lakeLouiseMinus[0].onclick = function () {
+    if(count > 0) {
+    count --;
+    }
+    availableLots[0].innerHTML = count;
+};
