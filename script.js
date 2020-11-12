@@ -73,9 +73,9 @@ let countMoraineLake = 0;
 //Moraine Lake
 const parkingMoraineLake = {
     name: "Moraine Lake",
-    stallsTotal: 100,
-    stallsTaken: countMoraineLake, //TODO create count that is parking specific 
-    stallsAvailable: this.stallsTotal-this.stallsTaken,
+    capacity: 200,
+    stallsTaken: 190,
+    stallsAvailable: 10,
     hours: {
         monday: "8:00 - 22:00",
         tuesday: "8:00 - 22:00",
@@ -91,7 +91,9 @@ const parkingMoraineLake = {
 //Overflow
 const parkingOverflow = {
     name: "Overflow",
-    stalls: 400,
+    capacity: 200,
+    stallsTaken: 190,
+    stallsAvailable: 10,
     hours: {
         monday: "8:00 - 22:00",
         tuesday: "8:00 - 22:00",
@@ -160,16 +162,26 @@ function subtractStalls(obj) {
 
 
 
-lakeLouisePlus[0].onclick = () => { addStalls(parkingLakeLouise);
-    console.log(parkingLakeLouise.stallsAvailable); 
+lakeLouisePlus[0].onclick = () => { addStalls(parkingLakeLouise); 
     availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
 }
-
 lakeLouiseMinus[0].onclick = () => { subtractStalls(parkingLakeLouise);
-    console.log(parkingLakeLouise.stallsAvailable); 
     availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
 }
 
+lakeLouisePlus[1].onclick = () => { addStalls(parkingMoraineLake); 
+    availableLots[1].innerHTML = parkingMoraineLake.stallsAvailable;
+}
+lakeLouiseMinus[1].onclick = () => { subtractStalls(parkingMoraineLake);
+    availableLots[1].innerHTML = parkingMoraineLake.stallsAvailable;
+}
+
+lakeLouisePlus[2].onclick = () => { addStalls(parkingOverflow); 
+    availableLots[2].innerHTML = parkingOverflow.stallsAvailable;
+}
+lakeLouiseMinus[2].onclick = () => { subtractStalls(parkingLakeLouise);
+    availableLots[2].innerHTML = parkingOverflow.stallsAvailable;
+}
 // function updateCounter (obj) {
 //     if (lakeLouisePlus[0].onclick === true) {
 //         addStalls(obj)
