@@ -50,17 +50,13 @@ function initMap() {
  * Parking objects
  */
 
-let stallsTaken = 0
-let stallsAvailable = 0
-
-
  //Lake Louise
 const parkingLakeLouise = {
     name: "Lake Louise",
 
     capacity: 200,
-    stallsTaken: 199,
-    stallsAvailable: 1,
+    stallsTaken: 190,
+    stallsAvailable: 10,
 
     hours: {
         monday: "8:00 - 22:00",
@@ -165,8 +161,13 @@ function subtractStalls(obj) {
 
 
 lakeLouisePlus[0].onclick = () => { addStalls(parkingLakeLouise);
-    console.log(parkingLakeLouise.stallsAvailable)
-availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
+    console.log(parkingLakeLouise.stallsAvailable); 
+    availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
+}
+
+lakeLouisePlus[0].onclick = () => { addStalls(parkingLakeLouise);
+    console.log(parkingLakeLouise.stallsAvailable); 
+    availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
 }
 
 // function updateCounter (obj) {
