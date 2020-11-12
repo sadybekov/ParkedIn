@@ -59,8 +59,8 @@ const parkingLakeLouise = {
     name: "Lake Louise",
 
     capacity: 200,
-    stallsTaken: stallsTaken,
-    stallsAvailable: stallsAvailable,
+    stallsTaken: 199,
+    stallsAvailable: 1,
 
     hours: {
         monday: "8:00 - 22:00",
@@ -146,10 +146,9 @@ const lakeLouisePlus = document.getElementsByClassName("buttonCounterPlus");
 const lakeLouiseMinus = document.getElementsByClassName("buttonCounterMinus");
 let availableLots = document.getElementsByClassName("counter");
 
-let count = availableLots[0].textContent;
 
 function addStalls(obj) {
-    if (obj.tallsTaken < obj.capacity) {
+    if (obj.stallsTaken < obj.capacity) {
         obj.stallsTaken ++;
     }
     obj.stallsAvailable = obj.capacity - obj.stallsTaken;
@@ -164,12 +163,18 @@ function subtractStalls(obj) {
 
 
 
-// lakeLouisePlus[0].onclick = function () {
-//     if (count < 100) {
-//     count ++
+
+lakeLouisePlus[0].onclick = () => { addStalls(parkingLakeLouise);
+    console.log(parkingLakeLouise.stallsAvailable)
+availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
+}
+
+// function updateCounter (obj) {
+//     if (lakeLouisePlus[0].onclick === true) {
+//         addStalls(obj)
 //     }
-//     availableLots[0].innerHTML = count;
-// };
+// }
+
 
 // lakeLouiseMinus[0].onclick = function () {
 //     if(count > 0) {
