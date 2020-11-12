@@ -50,10 +50,18 @@ function initMap() {
  * Parking objects
  */
 
+let stallsTaken = 0
+let stallsAvailable = 0
+
+
  //Lake Louise
 const parkingLakeLouise = {
     name: "Lake Louise",
-    stalls: 200,
+
+    capacity: 200,
+    stallsTaken: stallsTaken,
+    stallsAvailable: stallsAvailable,
+
     hours: {
         monday: "8:00 - 22:00",
         tuesday: "8:00 - 22:00",
@@ -140,16 +148,32 @@ let availableLots = document.getElementsByClassName("counter");
 
 let count = availableLots[0].textContent;
 
-lakeLouisePlus[0].onclick = function () {
-    if (count < 100) {
-    count ++
+function addStalls(obj) {
+    if (obj.tallsTaken < obj.capacity) {
+        obj.stallsTaken ++;
     }
-    availableLots[0].innerHTML = count;
-};
+    obj.stallsAvailable = obj.capacity - obj.stallsTaken;
+}
 
-lakeLouiseMinus[0].onclick = function () {
-    if(count > 0) {
-    count --;
+function subtractStalls(obj) {
+    if (obj.stallsTaken > 0) {
+        obj.stallsTaken --;
     }
-    availableLots[0].innerHTML = count;
-};
+    obj.stallsAvailable = obj.capacity - obj.stallsTaken; 
+}
+
+
+
+// lakeLouisePlus[0].onclick = function () {
+//     if (count < 100) {
+//     count ++
+//     }
+//     availableLots[0].innerHTML = count;
+// };
+
+// lakeLouiseMinus[0].onclick = function () {
+//     if(count > 0) {
+//     count --;
+//     }
+//     availableLots[0].innerHTML = count;
+// };
