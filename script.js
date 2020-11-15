@@ -49,15 +49,12 @@ function initMap() {
 /**
  * Parking objects
  */
-
+ 
  //Lake Louise
 const parkingLakeLouise = {
     name: "Lake Louise",
-
-    capacity: 10,
-    stallsTaken: 5,
-    stallsAvailable: 5,
-
+    capacity: 15,
+    stallsTaken: 0,
     hours: {
         monday: "8:00 - 22:00",
         tuesday: "8:00 - 22:00",
@@ -69,13 +66,14 @@ const parkingLakeLouise = {
     },
     responsible: "007",
 }
+
 let countMoraineLake = 0;
 //Moraine Lake
+
 const parkingMoraineLake = {
     name: "Moraine Lake",
-    capacity: 200,
-    stallsTaken: 190,
-    stallsAvailable: 10,
+    capacity: 15,
+    stallsTaken: 6,
     hours: {
         monday: "8:00 - 22:00",
         tuesday: "8:00 - 22:00",
@@ -91,9 +89,8 @@ const parkingMoraineLake = {
 //Overflow
 const parkingOverflow = {
     name: "Overflow",
-    capacity: 200,
-    stallsTaken: 190,
-    stallsAvailable: 10,
+    capacity: 15,
+    stallsTaken: 15,
     hours: {
         monday: "8:00 - 22:00",
         tuesday: "8:00 - 22:00",
@@ -144,6 +141,27 @@ const Plus = document.getElementsByClassName("buttonCounterPlus");
 const Minus = document.getElementsByClassName("buttonCounterMinus");
 let availableLots = document.getElementsByClassName("counter");
 
+//***********************************************************************//
+// function to calculate number of stalls available for each obj
+function calculateStallsAvailable (obj) {
+    let stallsAvailable = obj.capacity - obj.stallsTaken;
+    if (stallsAvailable === 0) {
+        stallsAvailable = "FULL";
+    }
+    return stallsAvailable;
+}
+
+//this adds the available stalls to the object 
+parkingLakeLouise.stallsAvailable = calculateStallsAvailable(parkingLakeLouise);
+parkingMoraineLake.stallsAvailable = calculateStallsAvailable(parkingMoraineLake);
+parkingOverflow.stallsAvailable = calculateStallsAvailable(parkingOverflow);
+
+// this displays the # of available stalls from the object onto the display screen
+
+availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
+availableLots[1].innerHTML = parkingMoraineLake.stallsAvailable;
+availableLots[2].innerHTML = parkingOverflow.stallsAvailable;
+//***********************************************************************//
 
 function addStalls(obj) {
     if (obj.stallsTaken < obj.capacity) {
@@ -162,39 +180,35 @@ function subtractStalls(obj) {
     obj.stallsAvailable = obj.capacity - obj.stallsTaken; 
 }
 
-
-
-
-Plus[0].onclick = () => { addStalls(parkingLakeLouise); 
-    availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
-}
-Minus[0].onclick = () => { subtractStalls(parkingLakeLouise);
-    availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
-}
-
-Plus[1].onclick = () => { addStalls(parkingMoraineLake); 
-    availableLots[1].innerHTML = parkingMoraineLake.stallsAvailable;
-}
-Minus[1].onclick = () => { subtractStalls(parkingMoraineLake);
-    availableLots[1].innerHTML = parkingMoraineLake.stallsAvailable;
+//***********************************************************************//
+//function for parking warning colours  
+function parkingWarning (availableLots) {
+    if (parseInt(availableLots.innerHTML) <= 10 && parseInt(availableLots.innerHTML) >= 1 ) {
+        availableLots.style.color = "#FFA500";
+    } else if (availableLots.innerHTML === "FULL") {
+        availableLots.style.color = "#FF0000";
+    } else if (parseInt(availableLots.innerHTML) > 10) {
+        availableLots.style.color = "#ADFF2F";
+    }
 }
 
-Plus[2].onclick = () => { addStalls(parkingOverflow); 
-    availableLots[2].innerHTML = parkingOverflow.stallsAvailable;
-}
-Minus[2].onclick = () => { subtractStalls(parkingOverflow);
-    availableLots[2].innerHTML = parkingOverflow.stallsAvailable;
-}
-// function updateCounter (obj) {
-//     if (lakeLouisePlus[0].onclick === true) {
-//         addStalls(obj)
-//     }
-// }
+parkingWarning(availableLots[0]);
+parkingWarning(availableLots[1]);
+parkingWarning(availableLots[2]);
+//***********************************************************************//
 
+Plus[0].onclick = () => {addStalls(parkingLakeLouise); availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable; parkingWarning (availableLots[0]); 
+}
+Minus[0].onclick = () => {subtractStalls(parkingLakeLouise); availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable; parkingWarning (availableLots[0]); 
+}
 
-// lakeLouiseMinus[0].onclick = function () {
-//     if(count > 0) {
-//     count --;
-//     }
-//     availableLots[0].innerHTML = count;
-// };
+Plus[1].onclick = () => { addStalls(parkingMoraineLake); availableLots[1].innerHTML = parkingMoraineLake.stallsAvailable; parkingWarning (availableLots[1]);
+}
+Minus[1].onclick = () => { subtractStalls(parkingMoraineLake); availableLots[1].innerHTML = parkingMoraineLake.stallsAvailable; parkingWarning (availableLots[1]);
+}
+
+Plus[2].onclick = () => {  addStalls(parkingOverflow); availableLots[2].innerHTML = parkingOverflow.stallsAvailable; parkingWarning (availableLots[2]);
+}
+Minus[2].onclick = () => { subtractStalls(parkingOverflow); availableLots[2].innerHTML = parkingOverflow.stallsAvailable; parkingWarning (availableLots[2]);
+}
+
