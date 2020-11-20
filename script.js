@@ -111,6 +111,11 @@ const parkingOverflow = {
  */
 
 //const parkingLots = [parkingLakeLouise, parkingMoraineLake, parkingOverflow]
+
+/**
+ * Fetch parkingLots object from server 
+ */
+
 const parkingLots = []
 
 function retrieveParkingLots() {
@@ -124,6 +129,9 @@ function retrieveParkingLots() {
         // availableLots[2].innerHTML = parkingOverflow.stallsAvailable;
     });
 }
+
+
+
 
 
 /**
