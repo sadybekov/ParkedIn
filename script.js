@@ -109,14 +109,30 @@ const parkingOverflow = {
  * [1] - Moraine Lake
  * [2] - Overflow
  */
-const parkings = [parkingLakeLouise, parkingMoraineLake, parkingOverflow]
+
+//const parkingLots = [parkingLakeLouise, parkingMoraineLake, parkingOverflow]
+const parkingLots = []
+
+function retrieveParkingLots() {
+    fetch ('http://localhost:8082/parkingLots')
+    .then(response => response.json())
+    .then(lots => {
+        console.log(lots);
+        debugger;
+        // availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
+        // availableLots[1].innerHTML = parkingMoraineLake.stallsAvailable;
+        // availableLots[2].innerHTML = parkingOverflow.stallsAvailable;
+    });
+}
+
 
 /**
  * Parking name assignment
  */
-document.querySelector("#ParkingOneName").innerHTML = parkings[0].name
-document.querySelector("#ParkingTwoName").innerHTML = parkings[1].name
-document.querySelector("#ParkingThreeName").innerHTML = parkings[2].name
+
+document.querySelector("#ParkingOneName").innerHTML = parkingLots[0].name
+document.querySelector("#ParkingTwoName").innerHTML = parkingLots[1].name
+document.querySelector("#ParkingThreeName").innerHTML = parkingLots[2].name
 
 /**
  * Toggle zoom at parking zone
