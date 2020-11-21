@@ -46,7 +46,6 @@ function initMap() {
 
 }
 
-
 //variables
 let parkingLots = [];
 const availableLots = document.getElementsByClassName("counter");
@@ -54,10 +53,19 @@ const availableParkingNumbers = []
 const namesParkingLots = document.getElementsByClassName("buttonName");
 
 //methods
+
 /**
- * Fetch parkingLots object from server
- * returns an array of parking lots and
+ * Onloads the list of functions to set up the page.
+ * Can be populated with more functions later on.
+ */
+function pageLoad() {
+    retrieveParkingLots();
+}
+
+/**
+ * Fetches parkingLots object from server
  * updates stalls available
+ * returns an array of parking lots with following IDs
  * 1 - Lake Louise
  * 2 - Moraine Lake
  * 3 - Overflow 
@@ -70,7 +78,6 @@ function retrieveParkingLots() {
         // debugger;
     })
     .then(parkingLots => updateStallsAvailable());
-
 }
 
 /**
@@ -96,12 +103,6 @@ function calculateStallsAvailable (obj) {
     return stallsAvailable;
 }
 
-/**
- * onload loader of UI
- */
-function pageLoad() {
-    retrieveParkingLots();
-}
 
 /**
  * sets intervals for stallsAvailable updates
