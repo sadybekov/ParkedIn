@@ -46,101 +46,95 @@ function initMap() {
 
 }
 
+
+//variables
+let parkingLots = [];
+const availableLots = document.getElementsByClassName("counter");
+const availableParkingNumbers = []
+const namesParkingLots = document.getElementsByClassName("buttonName");
+
+//methods
 /**
- * Parking objects
+ * Fetch parkingLots object from server
+ * returns an array of parking lots and
+ * updates stalls available
+ * 1 - Lake Louise
+ * 2 - Moraine Lake
+ * 3 - Overflow 
  */
- 
- //Lake Louise
-const parkingLakeLouise = {
-    name: "Lake Louise",
-    capacity: 15,
-    stallsTaken: 0,
-    hours: {
-        monday: "8:00 - 22:00",
-        tuesday: "8:00 - 22:00",
-        wednesday: "8:00 - 22:00",
-        thursday: "8:00 - 22:00",
-        friday: "8:00 - 22:00",
-        saturday: "8:00 - 22:00",
-        sunday: "8:00 - 22:00",
-    },
-    responsible: "007",
-}
-
-let countMoraineLake = 0;
-//Moraine Lake
-
-const parkingMoraineLake = {
-    name: "Moraine Lake",
-    capacity: 15,
-    stallsTaken: 6,
-    hours: {
-        monday: "8:00 - 22:00",
-        tuesday: "8:00 - 22:00",
-        wednesday: "8:00 - 22:00",
-        thursday: "8:00 - 22:00",
-        friday: "8:00 - 22:00",
-        saturday: "8:00 - 22:00",
-        sunday: "8:00 - 22:00",
-    },
-    responsible: "001",
-}
-
-//Overflow
-const parkingOverflow = {
-    name: "Overflow",
-    capacity: 15,
-    stallsTaken: 15,
-    hours: {
-        monday: "8:00 - 22:00",
-        tuesday: "8:00 - 22:00",
-        wednesday: "8:00 - 22:00",
-        thursday: "8:00 - 22:00",
-        friday: "8:00 - 22:00",
-        saturday: "8:00 - 22:00",
-        sunday: "8:00 - 22:00",
-    },
-    responsible: "002",
-}
-
-/**
- * Array of parking zones
- * [0] - Lake Louise
- * [1] - Moraine Lake
- * [2] - Overflow
- */
-
-//const parkingLots = [parkingLakeLouise, parkingMoraineLake, parkingOverflow]
-
-/**
- * Fetch parkingLots object from server 
- */
-
-const parkingLots = []
-
 function retrieveParkingLots() {
     fetch ('http://localhost:8082/parkingLots')
     .then(response => response.json())
     .then(lots => {
-        console.log(lots);
+        parkingLots = lots;
+        // debugger;
+    })
+    .then(parkingLots => updateStallsAvailable());
+
+}
+
+/**
+ * goes through the array of parking lots and updates stalls available
+ */
+function updateStallsAvailable() {
+    for (let i = 0; i < parkingLots.length; i++) {
+        namesParkingLots[i].innerHTML = parkingLots[i].name;  
+        availableLots[i].innerHTML = calculateStallsAvailable(parkingLots[i]);
+        parkingWarning(availableLots[i])
+    };
+}
+
+/**
+ * calculates stalls available for each obj
+ * @param {parkingLot} obj 
+ */
+function calculateStallsAvailable (obj) {
+    let stallsAvailable = obj.capacity - obj.stallsOccupied;
+    if (stallsAvailable === 0) {
+        stallsAvailable = "FULL";
+    }
+    return stallsAvailable;
+}
+
+/**
+ * onload loader of UI
+ */
+function pageLoad() {
+    retrieveParkingLots();
+}
+
+/**
+ * sets intervals for stallsAvailable updates
+ */
+const setIntervalUpdateStallsAvailable = setInterval(retrieveParkingLots, 5000);
+/**
+ * returns an object of a parkign by id
+ * @param {
+ * 1 - Lake Louise
+ * 2 - Moraine Lake
+ * 3 - Overflow 
+ * } id 
+ */
+function retrieveParkingLot(id) {
+    fetch (`http://localhost:8082/parkingLot?id=${id}`)
+    .then(response => response.json())
+    .then(lot => {
+        console.log(lot);
         debugger;
-        // availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
-        // availableLots[1].innerHTML = parkingMoraineLake.stallsAvailable;
-        // availableLots[2].innerHTML = parkingOverflow.stallsAvailable;
     });
 }
 
 
 
-
-
 /**
  * Parking name assignment
+ * TO DO link name asignment to array of parking lots
  */
-
-document.querySelector("#ParkingOneName").innerHTML = parkingLots[0].name
-document.querySelector("#ParkingTwoName").innerHTML = parkingLots[1].name
-document.querySelector("#ParkingThreeName").innerHTML = parkingLots[2].name
+// function assignNames(){
+    // for (let i = 0; i < parkingLots.length; i++) {
+    //     namesParkingLots[i].innerHTML = parkingLots[i].name   
+    // }
+// }
 
 /**
  * Toggle zoom at parking zone
@@ -161,30 +155,22 @@ document.querySelector("#ParkingThreeName").innerHTML = parkingLots[2].name
 
 
 
-const Plus = document.getElementsByClassName("buttonCounterPlus");
-const Minus = document.getElementsByClassName("buttonCounterMinus");
-let availableLots = document.getElementsByClassName("counter");
+
+
 
 //***********************************************************************//
-// function to calculate number of stalls available for each obj
-function calculateStallsAvailable (obj) {
-    let stallsAvailable = obj.capacity - obj.stallsTaken;
-    if (stallsAvailable === 0) {
-        stallsAvailable = "FULL";
-    }
-    return stallsAvailable;
-}
+
 
 //this adds the available stalls to the object 
-parkingLakeLouise.stallsAvailable = calculateStallsAvailable(parkingLakeLouise);
-parkingMoraineLake.stallsAvailable = calculateStallsAvailable(parkingMoraineLake);
-parkingOverflow.stallsAvailable = calculateStallsAvailable(parkingOverflow);
+// parkingLakeLouise.stallsAvailable = calculateStallsAvailable(parkingLakeLouise);
+// parkingMoraineLake.stallsAvailable = calculateStallsAvailable(parkingMoraineLake);
+// parkingOverflow.stallsAvailable = calculateStallsAvailable(parkingOverflow);
 
 // this displays the # of available stalls from the object onto the display screen
 
-availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
-availableLots[1].innerHTML = parkingMoraineLake.stallsAvailable;
-availableLots[2].innerHTML = parkingOverflow.stallsAvailable;
+// availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
+// availableLots[1].innerHTML = parkingMoraineLake.stallsAvailable;
+// availableLots[2].innerHTML = parkingOverflow.stallsAvailable;
 //***********************************************************************//
 
 function addStalls(obj) {
@@ -235,4 +221,3 @@ Plus[2].onclick = () => {  addStalls(parkingOverflow); availableLots[2].innerHTM
 }
 Minus[2].onclick = () => { subtractStalls(parkingOverflow); availableLots[2].innerHTML = parkingOverflow.stallsAvailable; parkingWarning (availableLots[2]);
 }
-
