@@ -124,72 +124,6 @@ function retrieveParkingLot(id) {
     });
 }
 
-
-
-/**
- * Parking name assignment
- * TO DO link name asignment to array of parking lots
- */
-// function assignNames(){
-    // for (let i = 0; i < parkingLots.length; i++) {
-    //     namesParkingLots[i].innerHTML = parkingLots[i].name   
-    // }
-// }
-
-/**
- * Toggle zoom at parking zone
- */
-// const buttonLakeLoiseParking = document.querySelector("#headingOne")
-// // console.log(buttonLakeLoiseParking[0])
-
-// let count = 0
-// buttonLakeLoiseParking.addEventListener("click", function() {
-//     count ++;
-//     console.log(count)
-//     console.log(typeof(map))
-//     map = {
-//         zoom: 15,
-//         center: moraineLakeParkingCoordinates,
-//     }
-// })
-
-
-
-
-
-
-//***********************************************************************//
-
-
-//this adds the available stalls to the object 
-// parkingLakeLouise.stallsAvailable = calculateStallsAvailable(parkingLakeLouise);
-// parkingMoraineLake.stallsAvailable = calculateStallsAvailable(parkingMoraineLake);
-// parkingOverflow.stallsAvailable = calculateStallsAvailable(parkingOverflow);
-
-// this displays the # of available stalls from the object onto the display screen
-
-// availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable;
-// availableLots[1].innerHTML = parkingMoraineLake.stallsAvailable;
-// availableLots[2].innerHTML = parkingOverflow.stallsAvailable;
-//***********************************************************************//
-
-function addStalls(obj) {
-    if (obj.stallsTaken < obj.capacity) {
-        obj.stallsTaken ++;
-    }
-    obj.stallsAvailable = obj.capacity - obj.stallsTaken;
-    if (obj.stallsAvailable === 0) {
-        obj.stallsAvailable = "FULL";
-    }
-}
-
-function subtractStalls(obj) {
-    if (obj.stallsTaken > 0) {
-        obj.stallsTaken --;
-    }
-    obj.stallsAvailable = obj.capacity - obj.stallsTaken; 
-}
-
 //***********************************************************************//
 //function for parking warning colours  
 function parkingWarning (availableLots) {
@@ -200,24 +134,4 @@ function parkingWarning (availableLots) {
     } else if (parseInt(availableLots.innerHTML) > 10) {
         availableLots.style.color = "#ADFF2F";
     }
-}
-
-parkingWarning(availableLots[0]);
-parkingWarning(availableLots[1]);
-parkingWarning(availableLots[2]);
-//***********************************************************************//
-
-Plus[0].onclick = () => {addStalls(parkingLakeLouise); availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable; parkingWarning (availableLots[0]); 
-}
-Minus[0].onclick = () => {subtractStalls(parkingLakeLouise); availableLots[0].innerHTML = parkingLakeLouise.stallsAvailable; parkingWarning (availableLots[0]); 
-}
-
-Plus[1].onclick = () => { addStalls(parkingMoraineLake); availableLots[1].innerHTML = parkingMoraineLake.stallsAvailable; parkingWarning (availableLots[1]);
-}
-Minus[1].onclick = () => { subtractStalls(parkingMoraineLake); availableLots[1].innerHTML = parkingMoraineLake.stallsAvailable; parkingWarning (availableLots[1]);
-}
-
-Plus[2].onclick = () => {  addStalls(parkingOverflow); availableLots[2].innerHTML = parkingOverflow.stallsAvailable; parkingWarning (availableLots[2]);
-}
-Minus[2].onclick = () => { subtractStalls(parkingOverflow); availableLots[2].innerHTML = parkingOverflow.stallsAvailable; parkingWarning (availableLots[2]);
 }
