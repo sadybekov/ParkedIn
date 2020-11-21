@@ -64,7 +64,7 @@ const namesParkingLots = document.getElementsByClassName("buttonName");
  */
 function retrieveParkingLots() {
     fetch ('http://localhost:8082/parkingLots')
-    .then(response => response.json())
+    .then(response => response.json()) //converts response jsaon file to an object
     .then(lots => {
         parkingLots = lots;
         // debugger;
@@ -117,7 +117,7 @@ const setIntervalUpdateStallsAvailable = setInterval(retrieveParkingLots, 5000);
  */
 function retrieveParkingLot(id) {
     fetch (`http://localhost:8082/parkingLot?id=${id}`)
-    .then(response => response.json())
+    .then(response => response.json()) //converts response jsaon file to an object
     .then(lot => {
         console.log(lot);
         debugger;
