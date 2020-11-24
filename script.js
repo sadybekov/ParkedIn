@@ -51,6 +51,7 @@ let parkingLots = [];
 const availableLots = document.getElementsByClassName("counter");
 const availableParkingNumbers = []
 const namesParkingLots = document.getElementsByClassName("buttonName");
+const parkingInfoCards = document.getElementsByClassName("card-body");
 
 //methods
 
@@ -72,10 +73,9 @@ function pageLoad() {
  */
 function retrieveParkingLots() {
     fetch ('http://localhost:8082/parkingLots')
-    .then(response => response.json()) //converts response jsaon file to an object
+    .then(response => response.json()) //converts response json file to an object
     .then(lots => {
         parkingLots = lots;
-        // debugger;
     })
     .then(parkingLots => updateStallsAvailable());
 }
@@ -86,10 +86,16 @@ function retrieveParkingLots() {
 function updateStallsAvailable() {
     for (let i = 0; i < parkingLots.length; i++) {
         namesParkingLots[i].innerHTML = parkingLots[i].name;  
+        //parkingInfoCards[i].innerHTML = parkingLots[i].hours;
         availableLots[i].innerHTML = calculateStallsAvailable(parkingLots[i]);
         parkingWarning(availableLots[i])
     };
 }
+
+// parkingLots[0].hours is shows the lake louise hours object. 
+
+let hours = Object.entries(parkingLots[0].hours);
+console.log(hours);
 
 /**
  * calculates stalls available for each obj
@@ -107,7 +113,7 @@ function calculateStallsAvailable (obj) {
 /**
  * sets intervals for stallsAvailable updates
  */
-const setIntervalUpdateStallsAvailable = setInterval(retrieveParkingLots, 5000);
+//const setIntervalUpdateStallsAvailable = setInterval(retrieveParkingLots, 5000);
 /**
  * returns an object of a parkign by id
  * @param {
@@ -118,10 +124,10 @@ const setIntervalUpdateStallsAvailable = setInterval(retrieveParkingLots, 5000);
  */
 function retrieveParkingLot(id) {
     fetch (`http://localhost:8082/parkingLot?id=${id}`)
-    .then(response => response.json()) //converts response jsaon file to an object
+    .then(response => response.json()) //converts response json file to an object
     .then(lot => {
         console.log(lot);
-        debugger;
+        //debugger;
     });
 }
 
