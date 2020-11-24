@@ -25,6 +25,10 @@ body {
     margin-top: 18px;
 }
 
+.lotHours {
+    list-style-type: none;
+}
+
 .counter {
     width: 100%;
     height: 100%;

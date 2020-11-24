@@ -52,6 +52,8 @@ const availableLots = document.getElementsByClassName("counter");
 const availableParkingNumbers = []
 const namesParkingLots = document.getElementsByClassName("buttonName");
 const parkingInfoCards = document.getElementsByClassName("card-body");
+const daysOfTheWeek = document.getElementsByClassName("daysOfTheWeek");
+const lotHours = document.getElementsByClassName("lotHours");
 
 //methods
 
@@ -86,16 +88,24 @@ function retrieveParkingLots() {
 function updateStallsAvailable() {
     for (let i = 0; i < parkingLots.length; i++) {
         namesParkingLots[i].innerHTML = parkingLots[i].name;  
-        //parkingInfoCards[i].innerHTML = parkingLots[i].hours;
+        lotHours[i].innerHTML = `<li>Monday: ${parkingLots[i].hours.monday}</li>
+        <li>Tuesday: ${parkingLots[i].hours.tuesday}</li>
+        <li>Wednesday: ${parkingLots[i].hours.wednesday}</li>
+        <li>Thursday: ${parkingLots[i].hours.thursday}</li>
+        <li>Friday: ${parkingLots[i].hours.friday}</li>
+        <li>Saturday: ${parkingLots[i].hours.saturday}</li>
+        <li>Sunday: ${parkingLots[i].hours.sunday}</li>
+        `
+        //for (let j = 0; j < parkingLots[i].hours.length)
+        // daysOfTheWeek[0].innerHTML = `Monday: ${parkingLots[i].hours.monday}`;
+        // daysOfTheWeek[1].innerHTML = `Tuesday: ${parkingLots[i].hours.tuesday}`;
+        //parkingInfoCards[i].innerHTML = JSON.stringify(parkingLots[i].hours);
         availableLots[i].innerHTML = calculateStallsAvailable(parkingLots[i]);
         parkingWarning(availableLots[i])
     };
 }
 
-// parkingLots[0].hours is shows the lake louise hours object. 
 
-let hours = Object.entries(parkingLots[0].hours);
-console.log(hours);
 
 /**
  * calculates stalls available for each obj
