@@ -51,8 +51,6 @@ let parkingLots = [];
 const availableLots = document.getElementsByClassName("counter");
 const availableParkingNumbers = []
 const namesParkingLots = document.getElementsByClassName("buttonName");
-const parkingInfoCards = document.getElementsByClassName("card-body");
-const daysOfTheWeek = document.getElementsByClassName("daysOfTheWeek");
 const lotHours = document.getElementsByClassName("lotHours");
 
 //methods
@@ -96,10 +94,6 @@ function updateStallsAvailable() {
         <li>Saturday: ${parkingLots[i].hours.saturday}</li>
         <li>Sunday: ${parkingLots[i].hours.sunday}</li>
         `
-        //for (let j = 0; j < parkingLots[i].hours.length)
-        // daysOfTheWeek[0].innerHTML = `Monday: ${parkingLots[i].hours.monday}`;
-        // daysOfTheWeek[1].innerHTML = `Tuesday: ${parkingLots[i].hours.tuesday}`;
-        //parkingInfoCards[i].innerHTML = JSON.stringify(parkingLots[i].hours);
         availableLots[i].innerHTML = calculateStallsAvailable(parkingLots[i]);
         parkingWarning(availableLots[i])
     };
