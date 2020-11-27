@@ -14,17 +14,26 @@ function initMap() {
         center: lakeLouiseParkingCoordinates,
     });
     //Markers
+
+    const customMarker = {
+        url: "/Resources/Icons/customMarker.svg",
+        scaledSize: new google.maps.Size(50, 50),
+    }
+    
     const markerMoraineLakeParking = new google.maps.Marker({
         position: moraineLakeParkingCoordinates,
         map: map,
+        icon: customMarker,
     }); 
     const markerLakeLouiseParking = new google.maps.Marker({
         position: lakeLouiseParkingCoordinates,
         map: map,
+        icon: customMarker,
     });
     const markerOverflowParking = new google.maps.Marker({
         position: overflowParkingCoordinates,
         map: map,
+        icon: customMarker,
     });
 
     const buttonLakeLoiseParking = document.querySelector("#headingOne")
@@ -52,6 +61,7 @@ const availableLots = document.getElementsByClassName("counter");
 const availableParkingNumbers = []
 const namesParkingLots = document.getElementsByClassName("buttonName");
 const lotHours = document.getElementsByClassName("lotHours");
+const parkingIconsAndInfo = document.getElementsByClassName("parkingIconsAndInfo");
 
 //methods
 
@@ -86,7 +96,14 @@ function retrieveParkingLots() {
 function updateStallsAvailable() {
     for (let i = 0; i < parkingLots.length; i++) {
         namesParkingLots[i].innerHTML = parkingLots[i].name;  
-        lotHours[i].innerHTML = `<li>Monday: ${parkingLots[i].hours.monday}</li>
+        
+        parkingIconsAndInfo[i].innerHTML = `<b>Parking Features:<b> <br> 
+        <img class="parkingIcons" src="Resources/Icons/car.svg">
+        <img class="parkingIcons" src="Resources/Icons/rv.svg"> 
+        <img class="parkingIcons" src="Resources/Icons/accessible.svg">
+        `
+        lotHours[i].innerHTML = `<b>Lot Hours:</b> 
+        <li>Monday: ${parkingLots[i].hours.monday}</li>
         <li>Tuesday: ${parkingLots[i].hours.tuesday}</li>
         <li>Wednesday: ${parkingLots[i].hours.wednesday}</li>
         <li>Thursday: ${parkingLots[i].hours.thursday}</li>
@@ -98,7 +115,6 @@ function updateStallsAvailable() {
         parkingWarning(availableLots[i])
     };
 }
-
 
 
 /**

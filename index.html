@@ -13,16 +13,17 @@
 <body onload= 'pageLoad()'>
 
   <!-- Navbar -->
-  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light shadow bg-white rounded">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark shadow">
     <a class="navbar-brand" href="#">
-      <img src="Resources/Icons/park.svg" height="40" width="40" alt="ParkedIn icon" loading="lazy">
+      <img src="Resources/Icons/ParkedInLogo.svg" height="40" width="40" alt="ParkedIn Logo" loading="lazy">
+      <h1 class = "appName">ParkedIn</h1>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto justify-content-end">
+      <ul class="navbar-nav mr-auto justify-content-end float-right">
         <li class="nav-item active">
           <a class="nav-link" href="#">FAQ</a>
         </li>
@@ -55,17 +56,17 @@
               </div>
               <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
+                  <div>
+                    <button type="button" class="btn btn-outline-success directionsButton">Get Directions</button>
+                    <p class="address">
+                      111 Lake Louise Drive, <br>
+                      Lake Louise, <br>
+                      AB T0L 1E0</p>
+                  </div>
+                  <div class="parkingIconsAndInfo">
+                  </div>
                   <ul class="lotHours">
-                    <!-- <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li> -->
                   </ul>
-                 
-                  <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. -->
                 </div>
               </div>
             </div>
@@ -85,17 +86,17 @@
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
+                  <div>
+                    <button type="button" class="btn btn-outline-success directionsButton">Get Directions</button>
+                    <p class="address">
+                      622 Moraine Lake Road, <br>
+                      Lake Louise, <br>
+                      AB T0L 1E0</p>
+                  </div>
+                  <div class="parkingIconsAndInfo"> 
+                  </div>
                   <ul class="lotHours">
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
                   </ul>
-                  
-                  <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. -->
                 </div>
               </div>
             </div>
@@ -115,20 +116,21 @@
               </div>
               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
+                  <div>
+                    <button type="button" class="btn btn-outline-success directionsButton">Get Directions</button>
+                    <p class="address">
+                      Trans-Canada Highway, <br>
+                      Improvement District, <br>
+                      No. 9, AB</p>
+                  </div>
+                  <div class="parkingIconsAndInfo"> 
+                  </div>
                   <ul class="lotHours">
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
-                    <li class="daysOfTheWeek"></li>
                   </ul>
-                  
-                  <!-- Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. -->
                 </div>
               </div>
             </div>
+            <img class="parkingImage" src="Resources/Icons/parkingArea.svg">
           </div>
         </div> 
       </div> 
@@ -139,7 +141,11 @@
         </div>
       </div>
     </div> 
-  </div> 
+  </div>
+
+  <footer class="myFooter bg-dark">
+
+  </footer>
    
   <script src="https://maps.googleapis.com/maps/api/js?AIzaSyAAzNOWylUlvND6WtHUdN3ECZoCZZy2LjA&callback=initMap&libraries=&v=weekly" defer></script>
   <script src = "script.js"></script>

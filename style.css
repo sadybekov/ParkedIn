@@ -1,6 +1,8 @@
 body {
     margin: 0%;
     padding: 0%;
+    position: relative;
+    min-height: 100vh;
 }
 
 @font-face {
@@ -16,7 +18,7 @@ body {
 }
 
 #parkingInfo {
-    height: 250px;
+    height: 200px;
     width: 100%;
     /* background-color: lightblue; */
 }
@@ -25,8 +27,14 @@ body {
     margin-top: 18px;
 }
 
-.lotHours {
+ul.lotHours {
     list-style-type: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+li {
+    font-size: 15px;
 }
 
 .counter {
@@ -63,4 +71,47 @@ body {
 .buttonCounter {
     font-size: 2em;
     line-height: 0.8;
+}
+
+.parkingIcons {
+    display: inline;
+    margin-left: 7.76px;
+    margin-right: 7.76px;
+    width: 30px;
+    height: 30px;
+}
+
+.directionsButton {
+    margin-top: 5px;
+}
+
+.parkingIconsAndInfo {
+    margin-top: 25px;
+}
+
+.address {
+    display: inline;
+    float: right;
+    color: rgb(99, 95, 95);
+    font-size: 15px;
+}
+
+.appName {
+    display: inline;
+    font-size: 20px;
+    text-align: left;
+    color: white;
+}
+
+.parkingImage {
+    width: 100%;
+    height: auto;
+    opacity: 0.5;
+}
+
+.myFooter {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3.5rem; 
 }
