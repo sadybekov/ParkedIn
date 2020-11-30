@@ -70,7 +70,8 @@ const parkingIconsAndInfo = document.getElementsByClassName("parkingIconsAndInfo
  * Can be populated with more functions later on.
  */
 function pageLoad() {
-    retrieveParkingLots();
+    // retrieveParkingLots();
+    retrieveParkingLotsCouch();
 }
 
 /**
@@ -82,7 +83,7 @@ function pageLoad() {
  * 3 - Overflow 
  */
 function retrieveParkingLots() {
-    fetch ('http://localhost:8082/parkingLots')
+    fetch ('http://localhost:8082/parkinglots')
     .then(response => response.json()) //converts response json file to an object
     .then(lots => {
         parkingLots = lots;
@@ -90,10 +91,20 @@ function retrieveParkingLots() {
     .then(parkingLots => updateStallsAvailable());
 }
 
+function retrieveParkingLotsCouch() {
+    fetch ('http://localhost:8082/parkinglotscouch')
+    .then(response => response.json()) //converts response json file to an object
+    .then(lots => {
+        parkingLots = lots;
+    })
+    .then(() => updateStallsAvailable());
+}
+
+
 /**
  * goes through the array of parking lots and updates stalls available
  */
-function updateStallsAvailable() {
+function updateStallsAvailable() { //TODO rename to represent update of parking lots
     for (let i = 0; i < parkingLots.length; i++) {
         namesParkingLots[i].innerHTML = parkingLots[i].name;  
         
