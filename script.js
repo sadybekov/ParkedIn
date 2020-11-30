@@ -144,7 +144,7 @@ function calculateStallsAvailable (obj) {
 /**
  * sets intervals for stallsAvailable updates
  */
-//const setIntervalUpdateStallsAvailable = setInterval(retrieveParkingLots, 5000);
+const setIntervalUpdateStallsAvailable = setInterval(retrieveParkingLotsCouch, 5000);
 /**
  * returns an object of a parkign by id
  * @param {
