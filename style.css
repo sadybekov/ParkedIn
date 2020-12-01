@@ -1,8 +1,9 @@
-body {
+html, body {
     margin: 0%;
     padding: 0%;
     position: relative;
     min-height: 100vh;
+    height: 100%;
 }
 
 @font-face {
@@ -18,13 +19,13 @@ body {
 }
 
 #parkingInfo {
-    height: 200px;
+    height: 130px;
     width: 100%;
-    /* background-color: lightblue; */
 }
 
-.topMargin {
+.content {
     margin-top: 18px;
+    margin-bottom: -18px;
 }
 
 ul.lotHours {
@@ -107,11 +108,15 @@ li {
     width: 100%;
     height: auto;
     opacity: 0.5;
+    position: relative;
+    z-index: -1;
 }
 
 .myFooter {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 3.5rem; 
+    height: 60px;
+    margin-top: 55px; 
+}
+
+.test { 
+    z-index:1;
 }
