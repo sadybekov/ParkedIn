@@ -64,7 +64,8 @@ const lotHours = document.getElementsByClassName("lotHours");
 const parkingIconsAndInfo = document.getElementsByClassName("parkingIconsAndInfo");
 const directionsButton = document.getElementsByClassName("directionsButton");
 const address = document.getElementsByTagName("address");
-
+const featureIcons = ["rv.svg", "bicycle.svg", "chargingStation.svg", "accessible.svg"];
+const featureIconsDisplayed = [];
 //methods
 
 /**
@@ -114,9 +115,9 @@ function updateParkingContent() { //TODO rename to represent update of parking l
         <img class="parkingIcons" src="Resources/Icons/rv.svg"> 
         <img class="parkingIcons" src="Resources/Icons/accessible.svg">
         `
+        console.log(getFeatureIcons(parkingLots[i]));
 
         address[i].innerHTML = parkingLots[i].address;
-        console.log(address);
         lotHours[i].innerHTML = `<b>Lot Hours:</b> 
         <li>Monday: ${parkingLots[i].hours.monday}</li>
         <li>Tuesday: ${parkingLots[i].hours.tuesday}</li>
@@ -175,4 +176,18 @@ function parkingWarning (availableLots) {
     } else if (parseInt(availableLots.innerHTML) > 10) {
         availableLots.style.color = "#ADFF2F";
     }
+}
+
+function getFeatureIcons(parkingLot) {
+    let features = parkingLot.parkingFeatures;
+    let iconsDisplayed = [];
+    for (let i = 0; i < Object.keys(features).length; i++) {
+        // if (features[Object.keys(features)[i]] === true) {
+        //     iconsDisplayed.push(featureIcons[i]); 
+        // }
+        if (Object.values(features)[i] === true) {
+            iconsDisplayed.push(featureIcons[i]); 
+        }
+    }
+    return iconsDisplayed;
 }
