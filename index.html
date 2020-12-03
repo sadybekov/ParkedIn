@@ -36,11 +36,12 @@
     
   <!-- Parking tags and Map -->
   <div class = "container-fluid content">
+    <img class="parkingImage" src="Resources/Icons/parkingArea.svg">
     <div class = "row">
       <div class = "col-sm-12 col-lg-4 order-2 order-lg-1">
         <div id ="parkingInfo">
           <div class="accordion" id="accordionExample">
-            
+            <!-- <img class="parkingImage" src="Resources/Icons/parkingArea.svg"> -->
             <div class="card">
               <div class="card-header row align-items-center" id="headingOne" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <div class = "col-8">
@@ -55,13 +56,10 @@
                 </div>
               </div>
               <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body">
+                <div class="card-body cardStyling">
                   <div>
-                    <button type="button" class="btn btn-outline-success directionsButton">Get Directions</button>
-                    <p class="address">
-                      111 Lake Louise Drive, <br>
-                      Lake Louise, <br>
-                      AB T0L 1E0</p>
+                    <address></address>
+                    <button type="button" class="btn btn-outline-success directionsButton" onclick = "window.location.href='https://goo.gl/maps/aCPBPpoQtUB7iTjY6'">Get Directions</button>
                   </div>
                   <div class="parkingIconsAndInfo">
                   </div>
@@ -87,11 +85,8 @@
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
                   <div>
-                    <button type="button" class="btn btn-outline-success directionsButton">Get Directions</button>
-                    <p class="address">
-                      622 Moraine Lake Road, <br>
-                      Lake Louise, <br>
-                      AB T0L 1E0</p>
+                    <address></address>
+                    <button type="button" class="btn btn-outline-success directionsButton" onclick = "window.location.href='https://goo.gl/maps/P9fBfggV3RPFkQf7A'">Get Directions</button>
                   </div>
                   <div class="parkingIconsAndInfo"> 
                   </div>
@@ -117,11 +112,8 @@
               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
                   <div>
-                    <button type="button" class="btn btn-outline-success directionsButton">Get Directions</button>
-                    <p class="address">
-                      Trans-Canada Highway, <br>
-                      Improvement District, <br>
-                      No. 9, AB</p>
+                    <address></address>
+                    <button type="button" class="btn btn-outline-success directionsButton" onclick = "window.location.href='https://goo.gl/maps/bNZqM2UgqoskjNc98'">Get Directions</button>
                   </div>
                   <div class="parkingIconsAndInfo"> 
                   </div>
@@ -132,11 +124,6 @@
             </div>
           </div>
         </div> 
-        <div class="row">
-          <div class="col">
-            <img class="parkingImage Responsive" src="Resources/Icons/parkingArea.svg">
-          </div>
-        </div>
       </div> 
       
 
@@ -148,15 +135,12 @@
     </div> 
   </div>
 
-  <footer class="myFooter bg-dark">
+  <footer class="bg-dark">
 
   </footer>
   
 
-  <script defer src="https://maps.googleapis.com/maps/api/js?key=APIKEYHERE&callback=initMap">
-  </script>
-
-
+  <script defer src= "http://maps.googleapis.com/maps/api/js?INSERTKEY&callback=initMap"></script>
   <script src = "script.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>

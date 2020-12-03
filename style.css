@@ -18,20 +18,23 @@ html, body {
     border-radius: 10px;
 }
 
+.cardStyling {
+    background-color: white;
+}
+
 #parkingInfo {
-    height: 130px;
     width: 100%;
 }
 
 .content {
-    margin-top: 18px;
-    margin-bottom: -18px;
+    margin-top: 25px;
 }
 
 ul.lotHours {
     list-style-type: none;
     padding-left: 0;
-    margin-top: 20px;
+    margin-top: 15px;
+    margin-bottom: 0px;
 }
 
 li {
@@ -83,16 +86,16 @@ li {
 }
 
 .directionsButton {
+    display: inline;
     margin-top: 5px;
 }
 
 .parkingIconsAndInfo {
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
-.address {
-    display: inline;
-    float: right;
+address {
+    margin-bottom: 0px;
     color: rgb(99, 95, 95);
     font-size: 15px;
 }
@@ -105,18 +108,24 @@ li {
 }
 
 .parkingImage {
-    width: 100%;
+    display: block;
+    width: 350px;
     height: auto;
     opacity: 0.5;
-    position: relative;
+    position: absolute;
     z-index: -1;
+    margin-top: 120px;
+    margin-left: 20px;
+    margin-right: auto;
+    align-content: center;
 }
 
-.myFooter {
+.accordian {
+    position: absolute;
+    z-index: 2;
+}
+
+footer {
     height: 60px;
-    margin-top: 55px; 
-}
-
-.test { 
-    z-index:1;
+    margin-top:60px;
 }
