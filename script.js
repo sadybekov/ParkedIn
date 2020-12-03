@@ -114,7 +114,9 @@ function updateParkingContent() { //TODO rename to represent update of parking l
         <img class="parkingIcons" src="Resources/Icons/rv.svg"> 
         <img class="parkingIcons" src="Resources/Icons/accessible.svg">
         `
+
         address[i].innerHTML = parkingLots[i].address;
+        console.log(address);
         lotHours[i].innerHTML = `<b>Lot Hours:</b> 
         <li>Monday: ${parkingLots[i].hours.monday}</li>
         <li>Tuesday: ${parkingLots[i].hours.tuesday}</li>
